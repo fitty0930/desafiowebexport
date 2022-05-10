@@ -37,6 +37,7 @@ class UsuarioController
     public function mostrarUsuario($params = null){
         $id_usuario = $params[':ID'];
         $usuario= $this->modelUsuario-> Get($id_usuario);
-        $this->view->mostrarUsuario($usuario);
+        $roles= $this->modelRoles->getRoles();
+        $this->view->mostrarUsuario($usuario, $roles);
     }
 }

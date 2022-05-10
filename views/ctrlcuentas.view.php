@@ -7,7 +7,7 @@ require_once('helpers/auth.helper.php');
         private $smarty;
 
         
-        public function __construct($globalCategorias = NULL){
+        public function __construct(){
                 $authHelper = new AuthHelper();
                 $session= $authHelper->obtenerUsuarioAdm();
                 if($session == NULL ){
@@ -27,7 +27,6 @@ require_once('helpers/auth.helper.php');
                 $this->smarty->assign('idUsuario', $idUsuario); 
                 $this->smarty->assign('admin', $admin); 
                 $this->smarty->assign('administraAlgo',$administraAlgo);
-                $this->smarty->assign('categorias',$globalCategorias); 
         }
 
         public function mostrarUsuarios($usuarios){ 

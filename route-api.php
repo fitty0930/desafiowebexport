@@ -11,9 +11,9 @@ define("HOME", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dir
 
 $r = new Router();
 
-$r->addRoute("usuarios/:ID/roles", "GET", "UserRolesApiController", "obtenerRolesDelUsuario");
-$r->addRoute("usuariosxrol", "POST", "ApiController", "agregarRol");
-$r->addRoute("usuariosxrol/:ID", "DELETE", "ApiController", "borrarRol");
+$r->addRoute("usuarioxrol/:ID/roles", "GET", "UserRolesApiController", "obtenerRolesDelUsuario");
+$r->addRoute("usuariosxrol", "POST", "UserRolesApiController", "agregarRol");
+$r->addRoute("usuariosxrol/:ID", "DELETE", "UserRolesApiController", "borrarRol");
 
 
 

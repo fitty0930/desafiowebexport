@@ -5,7 +5,7 @@
     class LoginView{
         private $smarty;
 
-        public function __construct($globalCategorias = NULL) {
+        public function __construct() {
             $authHelper = new AuthHelper();
             $session= $authHelper->obtenerUsuarioAdm();
             if($session == NULL ){
@@ -23,8 +23,7 @@
             $this->smarty->assign('basehref', BASE_URL);
             $this->smarty->assign('nombreUsuario', $nombreUsuario); 
             $this->smarty->assign('idUsuario', $idUsuario); 
-            $this->smarty->assign('admin', $admin); 
-            $this->smarty->assign('categorias',$globalCategorias);
+            $this->smarty->assign('admin', $admin);
             
         }
 

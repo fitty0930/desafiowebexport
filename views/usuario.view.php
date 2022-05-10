@@ -6,7 +6,7 @@
 
         private $smarty;
         
-        public function __construct($globalCategorias = NULL){
+        public function __construct(){
             $authHelper = new AuthHelper();
             $session= $authHelper->obtenerUsuarioAdm();
             if($session == NULL ){
@@ -23,8 +23,7 @@
             $this->smarty->assign('basehref', BASE_URL);
             $this->smarty->assign('nombreUsuario', $nombreUsuario); 
             $this->smarty->assign('idUsuario', $idUsuario); 
-            $this->smarty->assign('admin', $admin); 
-            $this->smarty->assign('categorias',$globalCategorias); 
+            $this->smarty->assign('admin', $admin);
         }
 
         public function mostrarUsuarios($usuarios){ 
@@ -39,9 +38,10 @@
             $this->smarty->display('templates/mostrarRoles.tpl'); 
         }
 
-        public function mostrarUsuario($usuario){
+        public function mostrarUsuario($usuario, $roles){
             $this->smarty->assign('titulo', 'Agregar Roles');
             $this->smarty->assign('usuario', $usuario);
+            $this->smarty->assign('roles',$roles);
             $this->smarty->display('templates/MostrarUsuario.tpl');
         }
         

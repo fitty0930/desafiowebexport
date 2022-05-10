@@ -30,7 +30,6 @@
         
 
         public function editarUsuario($usuario){ 
-            // var_dump($producto);
             $this->smarty->assign('titulo', 'Editar usuario');
             $this->smarty->assign('usuario', $usuario);
             $this->smarty->display('templates/editarUsuario.tpl');

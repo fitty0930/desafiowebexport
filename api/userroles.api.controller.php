@@ -1,5 +1,4 @@
 <?php
-require_once("models/comentario.model.php");
 require_once("models/usuario.model.php");
 require_once("models/usuariorol.model.php");
 require_once("./api/json.view.php");
@@ -10,11 +9,9 @@ include_once('helpers/auth.helper.php');
 class UserRolesApiController{
      
     
-    private $modelComentario;
-    private $modelProducto; 
+    private $modelComentario; 
     private $modelUsuario;
     private $modelUserRole;
-    private $modelCategoria; 
     private $viewJSON; 
     private $data; 
     private $authHelper;

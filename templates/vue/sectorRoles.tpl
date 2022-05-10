@@ -32,22 +32,19 @@
     </div>
     {/literal}
     {if $nombreUsuario}
-    {literal}
+    
     <div class="col-12">
         <h4 class="mb-0 card-header">Agrega un rol </h4>
         <br>
         <label for="">Roles disponibles</label>
-        <select name="" class="custom-select" id="puntaje-comentario">
-            <option selected value="5"> Añadir rol </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+        <select name="" class="custom-select" id="rol-usuario">
+            <option> Añadir rol </option>
+            {foreach $roles as $rol} 
+            <option value={$rol->id_rol}>{$rol->nombre}</option>
+            {/foreach}
         </select>
-        <button class="btn btn-success btn-block" @click="">Agregar</button>
+        <button class="btn btn-success btn-block" @click="agregarRol">Agregar</button>
     </div>
-    {/literal}
     {/if}
     {literal}
        

@@ -4,7 +4,7 @@
 </div>
 
 {* tenes que hacer una consulta que te traiga tambien todos los roles disponibles  *}
-
+<input hidden disabled value="{$usuario->id_usuario}" type="text" class="id_usuario"> 
 <div class="container">
      <div class="col-md-12">
           {include 'vue/sectorRoles.tpl'}
