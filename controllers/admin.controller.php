@@ -4,20 +4,23 @@ include_once 'views/admin.view.php';
 include_once 'views/usuario.view.php';
 include_once 'helpers/auth.helper.php';
 include_once('models/usuario.model.php');
+include_once('models/rol.model.php');
 
 class AdminController
 {
-
-    private $modelCategoria;
-    private $viewUser;
-    private $viewAdmin;
     private $authHelper;
+    private $modelRol;
+    private $viewAdmin;
+    private $viewUser;
+    private $modelUsuario;
+    
+   
 
     public function __construct()
     {
         $this->authHelper = new AuthHelper();
-        $globalCategorias = $this->modelCategoria->getCategorias();
-        $this->viewAdmin = new AdminView($globalCategorias);
+        $this->modelRol= new RolModel();
+        $this->viewAdmin = new AdminView();
         $this->viewUser = new UsuarioView();
         $this->modelCtrlcuentas = new CtrlcuentasModel();
         $this->modelUsuario = new UsuarioModel();
@@ -26,7 +29,7 @@ class AdminController
     // PRODUCTOS
     public function mostrarUsuarios()
     {
-        $usuarios = $this->modelCtrlcuentas->getUsuarios();
+        $usuarios = $this->modelUsuario->getUsuarios();
         $this->viewUser->mostrarUsuarios($usuarios);
     }
 
@@ -65,7 +68,7 @@ class AdminController
         if ($usuario) {
             $this->viewAdmin->editarUsuario($usuario);
         } else {
-            $this->viewUser->msjError('No se pudo encontrar el ID de su producto');
+            $this->viewUser->msjError('No se pudo encontrar usuario');
         }
 
     }
@@ -87,4 +90,56 @@ class AdminController
 
     }
 
+    public function crearRol()
+    {
+        $this->authHelper->isAdmin();
+
+        
+        $nombre = $_POST['nombre'];
+
+        if ((!empty($nombre))) {
+            
+            $this->modelRol->agregarRol($nombre);
+
+            header("Location: roles"); 
+        } else {
+            $this->viewUser->msjError('Faltan campos por rellenar');}
+    }
+
+    public function borrarRol($params = null)
+    {
+        $id_rol = $params[':ID'];
+        $this->authHelper->isAdmin();
+
+        $this->modelRol->borrarRol($id_rol);
+        header("Location: ../roles"); // tene en cuenta esto
+    }
+
+    public function editarUnRol($params = null)
+    { 
+        $id_rol = $params[':ID'];
+        $this->authHelper->isAdmin();
+        $rol = $this->modelRol->Get($id_rol);
+        if ($rol) {
+            $this->viewAdmin->editarRol($rol);
+        } else {
+            $this->viewUser->msjError('No se pudo encontrar el rol');
+        }
+
+    }
+
+    public function editarRolSelec($params = null)
+    {
+        $id_rol = $params[':ID'];
+        $this->authHelper->isAdmin();
+        $nombre = $_POST['nombre'];
+
+        if ((!empty($nombre))) { 
+            $this->modelRol->editarRol( $nombre , $id_rol);
+            header("Location: ../roles");
+        } else {
+            $this->viewUser->msjError("Datos insuficientes");
+        }
+
+    }
 }

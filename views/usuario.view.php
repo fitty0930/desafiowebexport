@@ -32,6 +32,18 @@
             $this->smarty->assign('usuarios', $usuarios);
             $this->smarty->display('templates/mostrarUsuarios.tpl'); 
         }
+
+        public function mostrarRoles($roles){ 
+            $this->smarty->assign('titulo', 'Usuarios');
+            $this->smarty->assign('roles', $roles);
+            $this->smarty->display('templates/mostrarRoles.tpl'); 
+        }
+
+        public function mostrarUsuario($usuario){
+            $this->smarty->assign('titulo', 'Agregar Roles');
+            $this->smarty->assign('usuario', $usuario);
+            $this->smarty->display('templates/MostrarUsuario.tpl');
+        }
         
         
         public function msjError($MsjError) {

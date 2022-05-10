@@ -1,6 +1,6 @@
 {include 'templates/header.tpl'}  
     <div class="container">
-    <h3> Categorias </h3>
+    <h3> Roles </h3>
         <ul class="list-group">
             {foreach $roles as $rol} 
                 <li class="list-group-item">
@@ -17,7 +17,7 @@
         {if $admin}
         <h2> Crear nuevo rol </h2>
         <div class="form-group">
-            <form action="nuevorol" method="POST">
+            <form action="crearrol" method="POST">
                 <label>Nombre</label>
                 <input class="form-control" type="text" name="nombre">
                 <br>

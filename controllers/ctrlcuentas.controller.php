@@ -6,15 +6,13 @@
     class CtrlcuentasController{
         private $authHelper;
         private $modelCtrlcuentas;
-        private $modelCategoria;
         private $viewCtrlcuentas;
 
         public function __construct(){
             $this->authHelper = new AuthHelper();
             $this->modelCtrlcuentas = new CtrlcuentasModel(); 
              // categoria
-            $globalCategorias= $this->modelCategoria->getCategorias();
-            $this->viewCtrlcuentas= new CtrlcuentasView($globalCategorias);
+            $this->viewCtrlcuentas= new CtrlcuentasView();
             $this->authHelper->isAdmin(); // MIRARLO
         }
 

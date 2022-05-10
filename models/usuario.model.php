@@ -35,11 +35,11 @@
             $sentencia->execute([$id_usuario]);
         }
 
-        public function todoUsuarios(){
-            $sentencia = $this->db->prepare('SELECT * FROM usuarios');
-            $sentencia->execute([]);
-            $response = $sentencia->fetchAll(PDO::FETCH_OBJ);
-            return $response;
+        public function getUsuarios(){ // va
+            $sentencia = $this->db->prepare('SELECT * FROM usuarios ORDER BY id_usuario ASC');
+            $sentencia->execute();
+
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
 
         public function Get($id_usuario){

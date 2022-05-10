@@ -7,7 +7,7 @@
         private $smarty; // smarty
 
 
-        public function __construct($globalCategorias = NULL){
+        public function __construct(){
             $authHelper = new AuthHelper();
             $session= $authHelper->obtenerUsuarioAdm();
             if($session == NULL ){
@@ -26,7 +26,6 @@
             $this->smarty->assign('nombreUsuario', $nombreUsuario);
             $this->smarty->assign('idUsuario', $idUsuario); 
             $this->smarty->assign('admin', $admin); 
-            $this->smarty->assign('categorias',$globalCategorias); 
         }
         
 
@@ -38,10 +37,10 @@
         }
         
 
-        public function editarCategoria($categoria){ 
-            $this->smarty->assign('titulo', 'edit'.$categoria->nombre);
-            $this->smarty->assign('categoria', $categoria);
-            $this->smarty->display('templates/editarCategoria.tpl');
+        public function editarRol($rol){ 
+            $this->smarty->assign('titulo', 'edit'.$rol->nombre);
+            $this->smarty->assign('rol', $rol);
+            $this->smarty->display('templates/editarRol.tpl');
         }
 
     }
