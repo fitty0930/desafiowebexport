@@ -30,12 +30,18 @@ class RolesApiController{
     public function agregarRol(){
         
         $data = $this->getData();
-        $rol = $this->modelRole->agregarRol($data->nombre);
-        if($rol){
-            $this->viewJSON->response('Su rol ha sido asignado', 200);
+        $role = $this->modelRole->getRol($data->nombre);
+        if(!$role){
+            $rol = $this->modelRole->agregarRol($data->nombre);
+            if($rol){
+                $this->viewJSON->response('Su rol ha sido asignado', 200);
+            }else{
+                $this->viewJSON->response('No se pudo asignar su rol', 500);
+            }
         }else{
-            $this->viewJSON->response('No se pudo asignar su rol', 500);
+            $this->viewJSON->response('Ese rol ya existe', 404);
         }
+        
     }
 
     public function borrarRol($params = NULL){

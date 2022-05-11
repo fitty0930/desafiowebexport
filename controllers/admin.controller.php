@@ -26,39 +26,6 @@ class AdminController
         $this->modelUsuario = new UsuarioModel();
     }
 
-    // PRODUCTOS
-    public function mostrarUsuarios()
-    {
-        $usuarios = $this->modelUsuario->getUsuarios();
-        $this->viewUser->mostrarUsuarios($usuarios);
-    }
-
-    public function crearUsuario()
-    {
-        $this->authHelper->isAdmin();
-
-        
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $admin=0;
-
-        if ((!empty($username)) && (!empty($password))) {
-            
-            $this->modelUsuario->Registrar($username, $password, $admin);
-
-            header("Location: usuarios"); // lo pateo a home
-        } else {
-            $this->viewUser->msjError('Faltan campos por rellenar');}
-    }
-
-    public function borrarUsuario($params = null)
-    {
-        $id_usuario = $params[':ID'];
-        $this->authHelper->isAdmin();
-
-        $this->modelUsuario->borrarUsuario($id_usuario);
-        header("Location: ../usuarios"); // tene en cuenta esto
-    }
 
     public function editarUnUsuario($params = null)
     { 
@@ -90,30 +57,6 @@ class AdminController
 
     }
 
-    public function crearRol()
-    {
-        $this->authHelper->isAdmin();
-
-        
-        $nombre = $_POST['nombre'];
-
-        if ((!empty($nombre))) {
-            
-            $this->modelRol->agregarRol($nombre);
-
-            header("Location: roles"); 
-        } else {
-            $this->viewUser->msjError('Faltan campos por rellenar');}
-    }
-
-    public function borrarRol($params = null)
-    {
-        $id_rol = $params[':ID'];
-        $this->authHelper->isAdmin();
-
-        $this->modelRol->borrarRol($id_rol);
-        header("Location: ../roles"); // tene en cuenta esto
-    }
 
     public function editarUnRol($params = null)
     { 

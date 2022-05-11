@@ -38,4 +38,11 @@
             $sentencia = $this->db->prepare('UPDATE roles SET nombre = ? WHERE id_rol = ?');
             $sentencia->execute([$nombre, $id_rol]);
         }
+
+        public function getRol($nombre) {
+            $sentencia = $this->db->prepare('SELECT * FROM roles WHERE nombre = ?');
+            $sentencia->execute(array($nombre));
+            $response = $sentencia->fetch(PDO::FETCH_OBJ);
+            return $response;
+        }
     }

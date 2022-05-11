@@ -28,15 +28,11 @@ $r->addRoute("logout","GET","LoginController", "Logout");
 // USUARIOS
 $r->addRoute("usuarios","GET","UsuarioController", "mostrarUsuarios");
 $r->addRoute("usuarios/:ID","GET","UsuarioController", "mostrarUsuario"); // individual
-$r->addRoute("crearusuario","POST","AdminController", "crearUsuario");
-$r->addRoute("borrarusuario/:ID","GET","AdminController", "borrarUsuario");
 $r->addRoute("edicionusuario/:ID","GET","AdminController", "editarUnUsuario"); // este muestra plant p edit
 $r->addRoute("editarusuario/:ID","POST","AdminController", "editarUsuarioSelec");
 
 // ROLES
 $r->addRoute("roles","GET","UsuarioController", "mostrarRoles");
-$r->addRoute("crearrol","POST","AdminController", "crearRol");
-$r->addRoute("borrarrol/:ID","GET","AdminController", "borrarRol");
 $r->addRoute("edicionrol/:ID","GET","AdminController", "editarUnRol"); // este muestra plant p edit
 $r->addRoute("editarrol/:ID","POST","AdminController", "editarRolSelec");
 

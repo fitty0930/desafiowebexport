@@ -24,7 +24,7 @@ class UsuarioController
     // USUARIOS
     public function mostrarUsuarios()
     {
-        $usuarios = $this->modelCtrlcuentas->getUsuarios();
+        $usuarios = $this->modelUsuario->getUsuarios();
         $this->view->mostrarUsuarios($usuarios);
     }
 

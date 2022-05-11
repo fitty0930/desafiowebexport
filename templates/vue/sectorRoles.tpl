@@ -44,6 +44,8 @@
             <option value={$rol->id_rol}>{$rol->nombre}</option>
             {/foreach}
         </select>
+        <br>
+        <br>
         <button class="btn btn-success btn-block" @click="agregarRol">Agregar</button>
     </div>
     {/if}
