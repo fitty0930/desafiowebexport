@@ -20,17 +20,26 @@ class UsersApiController
         $this->authHelper = new AuthHelper();
         $this->data = file_get_contents("php://input");
     }
+
     private function getData()
     {
         return json_decode($this->data);
     }
 
+    /**
+     * Get all the users
+     * @return Response the list of users and the status
+     */
     public function obtenerUsuarios()
     {
         $usuarios = $this->modelUsuario->getUsuarios();
         $this->viewJSON->response($usuarios, 200);
     }
 
+    /**
+     * Creates a user
+     * @return Response A message and the status
+     */
     public function agregarUsuario()
     {
         $data = $this->getData();
@@ -43,12 +52,17 @@ class UsersApiController
             } else {
                 $this->viewJSON->response('No se pudo crear el usuario', 500);
             }
-        }else {
+        } else {
             $this->viewJSON->response('Ese nombre de usuario ya existe', 404);
         }
 
     }
 
+    /**
+     * Deletes the specified user
+     * @param Integer the user's ID
+     * @return Response A message and the status
+     */
     public function borrarUsuario($params = null)
     {
         $id_usuario = $params[':ID'];

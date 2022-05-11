@@ -22,11 +22,19 @@ class RolesApiController{
         return json_decode($this->data);
     }
 
+    /**
+     * Get all the roles
+     * @return Response a list of roles and a status
+     */
     public function obtenerRoles(){
         $roles = $this->modelRole->getRoles();
         $this->viewJSON->response($roles, 200);
     } 
 
+    /**
+     * Creates a new role
+     * @return Response a message and a status
+     */
     public function agregarRol(){
         
         $data = $this->getData();
@@ -44,6 +52,11 @@ class RolesApiController{
         
     }
 
+    /**
+     * Deletes the specified role
+     * @param Integer the role's ID
+     * @return Response a message and a status
+     */
     public function borrarRol($params = NULL){
         $id_rol = $params[':ID'];
         $role = $this->modelRole->Get($id_rol);

@@ -52,6 +52,7 @@ include_once('helpers/auth.helper.php');
             $this->view->mostrarRegistro();
 
         }
+
         public function Registrar(){
             $nombre_usuario = $_POST['usuario'];
             $password = $_POST['password'];

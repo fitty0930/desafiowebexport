@@ -2,7 +2,7 @@
 class JSONView {
 
     /**
-     * Responde cualquier coleccion de objetos en formato JSON.
+     * Returns any collection of objects in JSON format.
      */
     public function response($data, $status) {
         header("Content-Type: application/json");
@@ -11,7 +11,7 @@ class JSONView {
     }
 
     /**
-     * Asocia un mensaje a un codigo de respuesta.
+     * Associates a message with a response code.
      */
     private function _requestStatus($code){
         $status = array(
