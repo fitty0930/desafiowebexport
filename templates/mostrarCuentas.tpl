@@ -12,7 +12,6 @@
                         <span class="badge badge-danger text-wrap" style="width: 6rem;"> Administrador </span>
                     {/if}
             {* cambiar por button *}
-            <small class="badge badge-light text-wrap" style="width: 6rem;"><a href="borrarcuenta/{$usuario->id_usuario}"> Eliminar </a></small>
             <small class="badge badge-light text-wrap" style="width: 6rem;"><a href="darpermisocuenta/{$usuario->id_usuario}"> Alternar permisos </a></small>
             </li>
             {/if}

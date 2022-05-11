@@ -34,7 +34,7 @@
                   {if $admin}                 
                     {* el admin *}
                     <li class="nav-item active ">
-                      <a class="nav-link" href="ctrlcuentas"> Control de cuentas </a>
+                      <a class="nav-link" href="ctrlcuentas"> Permisos </a>
                     </li>  
                   {/if}
                 </ul>

@@ -21,6 +21,14 @@
 
             return $sentencia->fetch(PDO::FETCH_OBJ);
         }
+
+        public function alreadyHaveRole($id_usuario, $id_rol){
+            $sentencia= $this->db->prepare('SELECT * FROM usuarioxrol WHERE id_usuario=? AND id_rol=?');
+            $sentencia->execute([$id_usuario, $id_rol]);
+
+            return $sentencia->fetch(PDO::FETCH_OBJ);
+        }
+
         public function obtenerRolesDelUsuario($id_usuario){
             $sentencia = $this->db->prepare('SELECT * FROM usuarioxrol JOIN roles ON usuarioxrol.id_rol=roles.id_rol WHERE usuarioxrol.id_usuario = ?');
             $sentencia->execute([$id_usuario]);

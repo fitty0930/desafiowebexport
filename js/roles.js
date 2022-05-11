@@ -1,16 +1,16 @@
 "use strict"
 document.addEventListener("DOMContentLoaded", function () {
     let app = new Vue({
-        el: "#userroles-api",
+        el: "#roles-api",
         data: {
-            titulo: "Roles del usuario",
+            titulo: "Roles",
             cargando: false,
-            roles: []
+            roles: [],
         },
 
         methods: {
-            borrarRol: function (event, id_userxrol) {
-                let urlencoded = encodeURI("api/usuariosxrol/" + id_userxrol)
+            borrarRol: function (event, id_rol) {
+                let urlencoded = encodeURI("api/rolesapi/" + id_rol)
                 fetch(urlencoded, {
                     "method": "DELETE"
                 })
@@ -19,21 +19,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     })
                     .then(() => {
                         getRoles();
-                        console.log("Borrado exitoso", id_userxrol);
+                        console.log("Borrado exitoso", id_rol);
                     })
                     .catch(error => console.log(error));
             },
+            editarRol: function (event, id_rol) {
+                location.replace("edicionrol/"+id_rol);
+            },
 
             agregarRol: function () {
-                let id_rol = document.querySelector("#rol-usuario").value;
-                let id_usuario = document.querySelector(".id_usuario").value;
+                let nombre = document.querySelector("#nuevo-rol").value;
 
                 let data = {
-                    "id_rol": id_rol,
-                    "id_usuario": id_usuario
+                    "nombre": nombre
                 };
 
-                let urlencoded = encodeURI("api/usuariosxrol")
+                let urlencoded = encodeURI("api/rolesapi")
 
                 fetch(urlencoded, {
                     "method": "POST",
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
                     .then(() => {
                         getRoles();
+                        document.querySelector("#nuevo-rol").value="";
                         console.log("publicado con exito")
                     })
                     .catch(error => console.log(error));
@@ -57,9 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("load", getRoles());
 
     function getRoles() {
-        let id_usuario = document.querySelector(".container").dataset.id_usuario;
         app.cargando = true;
-        let urlencoded = encodeURI("api/usuarioxrol/" + id_usuario + "/roles")
+        let urlencoded = encodeURI("api/rolesapi")
         fetch(urlencoded)
             .then(response => {
                 if (!response.ok) { console.log("error"); } else {

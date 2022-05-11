@@ -42,11 +42,16 @@ class UserRolesApiController{
     public function agregarRol(){
         
         $data = $this->getData();
-        $rol = $this->modelUserRole->guardarRol($data->id_usuario , $data->id_rol);
-        if($rol){
-            $this->viewJSON->response('Su rol ha sido asignado', 200);
+        $alreadyHaveRole=$this->modelUserRole->alreadyHaveRole($data->id_usuario , $data->id_rol);
+        if(!$alreadyHaveRole){
+            $rol = $this->modelUserRole->guardarRol($data->id_usuario , $data->id_rol);
+            if($rol){
+                $this->viewJSON->response('Su rol ha sido asignado', 200);
+            }else{
+                $this->viewJSON->response('No se pudo asignar su rol', 500);
+            }
         }else{
-            $this->viewJSON->response('No se pudo asignar su rol', 500);
+            $this->viewJSON->response('El rol ya se encuentra asignado para ese usuario', 404);
         }
     }
 
