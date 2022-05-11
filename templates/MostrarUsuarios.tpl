@@ -5,7 +5,8 @@
         <ul class="list-group">
             {* imprimo con un foreach a cada cosa del objeto productos lo subdivido e imprimo *}
             {foreach $usuarios as $usuario}
-                <li class="list-group-item"><a href="usuarios/{$usuario->id_usuario}">{$usuario->nombre_usuario}</a> ID: {$usuario->id_usuario}
+                <li class="list-group-item">{$usuario->nombre_usuario} ID: {$usuario->id_usuario}
+                <a href="usuarios/{$usuario->id_usuario}" class="badge bg-info text-dark" style="width: 6rem;"> Ver Roles </a>
                 {if $admin} 
                 <a href="borrarusuario/{$usuario->id_usuario}" class="badge badge-danger text-wrap" style="width: 6rem;"> Borrar </a> <a class="badge badge-warning text-wrap" style="width: 6rem;" href="edicionusuario/{$usuario->id_usuario}"> Modificar </a>
                 {/if}

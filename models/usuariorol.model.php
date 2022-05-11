@@ -15,9 +15,9 @@
             , 'root', '');// el primer root es el usuario y el segundo (vacio) la contraseña
         }
         // usuarioxrol id_usuario, id_rol
-        public function Get($id_comentario){
-            $sentencia = $this->db->prepare('SELECT * FROM comentarios WHERE id_comentario = ?');
-            $sentencia->execute([$id_comentario]);
+        public function Get($id_userxrol){
+            $sentencia = $this->db->prepare('SELECT * FROM usuarioxrol WHERE id_userxrol = ?');
+            $sentencia->execute([$id_userxrol]);
 
             return $sentencia->fetch(PDO::FETCH_OBJ);
         }

@@ -54,8 +54,8 @@ class UserRolesApiController{
         $id_userxrol = $params[':ID'];
         $userxrole = $this->modelUserRole->Get($id_userxrol);
         if($userxrole){
-            $this->modelComentario->borrarRol($id_userxrol);
-            $this->viewJSON->response('Comentario borrado con exito', 200);
+            $this->modelUserRole->borrarRol($id_userxrol);
+            $this->viewJSON->response('Rol borrado con exito', 200);
         }else{
             $this->viewJSON->response("El rol buscado no existe", 404);
         }

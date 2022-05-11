@@ -13,7 +13,7 @@
             
             <ul v-else class="list-group">
                 <div  v-if= "!roles[0]">
-                    <p> este usuario no tiene roles asignados </p>
+                    <p> Este usuario no tiene roles asignados </p>
                 </div>
                 <a v-for="rol in roles" class="list-group-item list-group-item-action"> 
                         <div class="card-footer">
@@ -22,7 +22,7 @@
                 {/literal}
                 {if $admin}
                     {literal}
-                    <button class="btn btn-danger" @click="(event)=>{borrarComentario(event, comentario.id_comentario)}" class="borrar"> Borrar </button>
+                    <button class="btn btn-danger borrar" @click="(event)=>{borrarRol(event, rol.id_userxrol)}"> Borrar </button>
                     
                     {/literal}
                 {/if}
