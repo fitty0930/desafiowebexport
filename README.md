@@ -19,8 +19,11 @@ Los visitantes solo pueden visualizar.
 
 Si se quiere usar con Docker en lugar de Xampp:
 Luego de clonar el proyecto cambiar de rama con el comando "git checkout dockerbranch"
+
 Usar el comando "docker compose up" para levantar el proyecto
+
 Se debe importar la base de datos desde el archivo db_desafio.sql que se encuentra dentro de la carpeta BDD en el contenedor de phpmyadmin
+
 Luego simplemente se va al puerto del proyecto y estará en funcionamiento
 
 Puertos: 
