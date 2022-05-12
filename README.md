@@ -16,3 +16,14 @@ A continuación dejo los usuarios que vienen por defecto al importar la base de 
 Los administradores pueden crear, modificar y eliminar usuarios y roles pudiendo además asignar o quitar roles a un determinado usuario.
 Los usuarios solo pueden asignar roles.
 Los visitantes solo pueden visualizar.
+
+Si se quiere usar con Docker en lugar de Xampp:
+Luego de clonar el proyecto cambiar de rama con el comando "git checkout dockerbranch"
+Usar el comando "docker compose up" para levantar el proyecto
+Se debe importar la base de datos desde el archivo db_desafio.sql que se encuentra dentro de la carpeta BDD en el contenedor de phpmyadmin
+Luego simplemente se va al puerto del proyecto y estará en funcionamiento
+
+Puertos: 
+* Proyecto --- localhost:8080
+* PhpMyAdmin --- localhost:8081 
+* Adminer --- localhost:8083
