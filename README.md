@@ -12,3 +12,7 @@ A continuación dejo los usuarios que vienen por defecto al importar la base de 
 * Username: hola            Password: hola      Permisos: Usuario
 * Username: ricardoarjona   Password: 12345     Permisos: Usuario
 * Username: webexport       Password: webexport Permisos: Administrador
+
+Los administradores pueden crear, modificar y eliminar usuarios y roles pudiendo además asignar o quitar roles a un determinado usuario.
+Los usuarios solo pueden asignar roles.
+Los visitantes solo pueden visualizar.
