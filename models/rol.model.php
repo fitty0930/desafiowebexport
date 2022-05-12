@@ -11,9 +11,9 @@ class RolModel
 
     private function Connect()
     {
-        return new PDO('mysql:host=localhost;'
+        return new PDO('mysql:host=mysqldb;'
             . 'dbname=db_desafio; charset=utf8'
-            , 'root', '');
+            , 'root', 'dockerwebexport');
     }
 
     /**

@@ -29,7 +29,7 @@
         public function mostrarUsuarios($usuarios){ 
             $this->smarty->assign('titulo', 'Usuarios');
             $this->smarty->assign('usuarios', $usuarios);
-            $this->smarty->display('templates/mostrarUsuarios.tpl'); 
+            $this->smarty->display('templates/MostrarUsuarios.tpl'); 
         }
 
         public function mostrarRoles($roles){ 
