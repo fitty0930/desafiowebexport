@@ -32,14 +32,14 @@
         public function editarUsuario($usuario){ 
             $this->smarty->assign('titulo', 'Editar usuario');
             $this->smarty->assign('usuario', $usuario);
-            $this->smarty->display('templates/editarUsuario.tpl');
+            $this->smarty->display('templates/EditarUsuario.tpl');
         }
         
 
         public function editarRol($rol){ 
             $this->smarty->assign('titulo', 'edit'.$rol->nombre);
             $this->smarty->assign('rol', $rol);
-            $this->smarty->display('templates/editarRol.tpl');
+            $this->smarty->display('templates/EditarRol.tpl');
         }
 
     }

@@ -35,7 +35,7 @@
         public function mostrarRoles($roles){ 
             $this->smarty->assign('titulo', 'Usuarios');
             $this->smarty->assign('roles', $roles);
-            $this->smarty->display('templates/mostrarRoles.tpl'); 
+            $this->smarty->display('templates/MostrarRoles.tpl'); 
         }
 
         public function mostrarUsuario($usuario, $roles){
